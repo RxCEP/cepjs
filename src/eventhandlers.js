@@ -104,23 +104,3 @@ module.exports = {
     EventManager: EventManager,
     EventStream: EventStream
 };
-
-class VanNearBy{
-    constructor(location){
-        this._location = location;
-    }
-
-    get location() {
-        return this._location;
-    }
-    set location(value) {
-        this._location = value;
-    }
-}
-
-/* console.dir(Point);
-let stream = EventManager.create(of(new VanNearBy(new Point(-8.04689086, -34.92822534)), 
-new VanNearBy(new Point(-8.03109541, -34.98213442)),
-new VanNearBy(new Point(-7.93997686, -35.00342681)),
-new VanNearBy(new Point(-7.9748842, -34.87315293))));
-console.log(stream.filter(x => x !==undefined)); */

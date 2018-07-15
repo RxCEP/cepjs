@@ -1,5 +1,5 @@
-const {of, Observable} = require('rxjs');
-const { filter, map} = require('rxjs/operators');
+const {Observable} = require('rxjs');
+const {filter, map} = require('rxjs/operators');
 const R = require('ramda');
 const {Point} = require("./location.js");
 const {predEvtTypeList} = require("./helperFuntions.js");
