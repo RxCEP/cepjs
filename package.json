@@ -1,0 +1,31 @@
+{
+  "name": "cepjs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:watch": "webpack -w"
+  },
+  "keywords": [
+    "CEPJS",
+    "Reactive Programming",
+    "Complex Event Processing",
+    "CEP",
+    "Reactive Complex Event Processing",
+    "RxJS",
+    "RxCEP"
+  ],
+  "dependencies": {
+    "rxjs": "6.2.1",
+    "ramda": "0.25.0",
+    "haversine-js": "1.0.0"
+  },
+  "devDependencies": {
+    "webpack": "4.16.0",
+    "webpack-cli": "3.0.8"
+  },
+  "author": "RxCEP",
+  "license": "MIT"
+}
