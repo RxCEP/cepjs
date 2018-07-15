@@ -1,12 +1,12 @@
 class EventType {
     constructor(eventTypeId, eventComposition, temporalGranularity,
-        occurrenceTime = 0, detectionTime = 0, eventAnnotation, eventIdentity,
+        occurrenceTime = 0, eventAnnotation, eventIdentity,
         eventSource) {
         this.eventTypeId = eventTypeId;
         this._eventComposition = eventComposition;
         this._temporalGranularity = temporalGranularity;
         this._occurrenceTime = occurrenceTime;
-        this._detectionTime = detectionTime;
+        this._detectionTime = 0;
         this._eventAnnotation = eventAnnotation;
         this._eventIdentity = eventIdentity;
         this._eventSource = eventSource;
