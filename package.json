@@ -20,7 +20,7 @@
   "dependencies": {
     "rxjs": "6.2.1",
     "ramda": "0.25.0",
-    "haversine-js": "1.0.0"
+    "geodesy": "1.1.3"
   },
   "devDependencies": {
     "webpack": "4.16.0",

@@ -1,6 +1,6 @@
 const {EventManager} = require('./eventhandlers.js');
 const {EventType} = require('./eventtype.js');
-const {Point} = require('./rx');
+const {Point, Hemisphere} = require('./rx');
 
 require("expose-loader?rxjs!rxjs");
 require("expose-loader?rxjs.operators!rxjs/operators");
@@ -8,5 +8,6 @@ require("expose-loader?rxjs.operators!rxjs/operators");
 module.exports = {
     EventType: EventType,
     EventManager: EventManager,
-    Point: Point
+    Point: Point,
+    Hemisphere: Hemisphere
 }

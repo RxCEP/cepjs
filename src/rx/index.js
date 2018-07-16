@@ -6,24 +6,28 @@ const {rxMinDistancePattern, rxMaxDistancePattern, rxAvgDistancePattern,
     rxRelativeAvgDistancePattern} = require('./spatialpatterns.js');
 const {rxProject} = require('./transformation.js');
 
-const {Point, SphereRadius} = require('./location.js');
+const {Point, Hemisphere} = require('./location.js');
 
 module.exports = {
+    Point: Point,
+    Hemisphere: Hemisphere,
+
     rxTumblingCountWindow: rxTumblingCountWindow,
     rxSlidingCountWindow: rxSlidingCountWindow,
     rxHoppingCountWindow: rxHoppingCountWindow,
     rxTumblingTemporalWindow: rxTumblingTemporalWindow,
     rxHoppingTemporalWindow: rxHoppingTemporalWindow,
-    Point: Point,
-    SphereRadius: SphereRadius,
+
     rxAllPattern: rxAllPattern,
     rxAnyPattern: rxAnyPattern, 
     rxAbscencePattern: rxAbscencePattern,
+
     rxMinDistancePattern: rxMinDistancePattern,
     rxMaxDistancePattern: rxMaxDistancePattern,
     rxAvgDistancePattern: rxAvgDistancePattern,
     rxRelativeMinDistancePattern: rxRelativeMinDistancePattern,
     rxRelativeMaxDistancePattern: rxRelativeMaxDistancePattern,
     rxRelativeAvgDistancePattern: rxRelativeAvgDistancePattern,
+    
     rxProject: rxProject
 }
