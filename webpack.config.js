@@ -7,8 +7,5 @@ module.exports = {
     path: path.resolve('dist'),
     filename: 'cepjs.js',
     library: 'cepjs'
-  },
-  externals:{
-    rxjs: 'rxjs'
   }
 }

@@ -4,6 +4,7 @@ const {rxAllPattern, rxAnyPattern, rxAbscencePattern} = require('./logicalpatter
 const {rxMinDistancePattern, rxMaxDistancePattern, rxAvgDistancePattern,
     rxRelativeMinDistancePattern, rxRelativeMaxDistancePattern,
     rxRelativeAvgDistancePattern} = require('./spatialpatterns.js');
+const {rxProject} = require('./transformation.js');
 
 const {Point, SphereRadius} = require('./location.js');
 
@@ -23,5 +24,6 @@ module.exports = {
     rxAvgDistancePattern: rxAvgDistancePattern,
     rxRelativeMinDistancePattern: rxRelativeMinDistancePattern,
     rxRelativeMaxDistancePattern: rxRelativeMaxDistancePattern,
-    rxRelativeAvgDistancePattern: rxRelativeAvgDistancePattern
+    rxRelativeAvgDistancePattern: rxRelativeAvgDistancePattern,
+    rxProject: rxProject
 }
