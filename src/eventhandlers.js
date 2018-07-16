@@ -1,12 +1,11 @@
-const {of} = require("rxjs");
 const {filter, map} = require('rxjs/operators');
-const {Point} = require('./index.js');
+const R = require('ramda');
 const {rxTumblingCountWindow, rxSlidingCountWindow,
     rxHoppingCountWindow, rxTumblingTemporalWindow, rxHoppingTemporalWindow,
     rxAllPattern, rxAnyPattern, rxAbscencePattern, rxMinDistancePattern, rxMaxDistancePattern,
     rxAvgDistancePattern, rxRelativeMinDistancePattern, rxRelativeMaxDistancePattern,
-    rxRelativeAvgDistancePattern} = require('./rx');
-const R = require('ramda');
+    rxRelativeAvgDistancePattern, project} = require('./rx');
+
 
 const init = (observable, fn) => R.isNil(fn)? observable: observable.pipe(map(mapFn));
 
@@ -21,8 +20,14 @@ class EventStream {
         this._observable = observable;
     }
 
+    //filtering
     filter(fn){
         return EventManager.create(this._observable.pipe(filter(fn)));
+    }
+
+    //transformation
+    project(list, newEvtTypeId){
+        return EventManager.create(this._observable.pipe(project(list, newEvtTypeId)));
     }
     
     //windows
@@ -60,29 +65,29 @@ class EventStream {
 
     //spatial patterns
 
-    minDistancePattern(eventTypeList, givenPoint, attribute, assertion){
+    minDistancePattern(eventTypeList, givenPoint, attribute, assertion, newEvtTypeId){
         return EventManager.create(this._observable
-            .pipe(rxMinDistancePattern(eventTypeList, givenPoint, attribute, assertion)));
+            .pipe(rxMinDistancePattern(eventTypeList, givenPoint, attribute, assertion, newEvtTypeId)));
     }
-    maxDistancePattern(eventTypeList, givenPoint, attribute, assertion){
+    maxDistancePattern(eventTypeList, givenPoint, attribute, assertion, newEvtTypeId){
         return EventManager.create(this._observable
-            .pipe(rxMaxDistancePattern(eventTypeList, givenPoint, attribute, assertion)));
+            .pipe(rxMaxDistancePattern(eventTypeList, givenPoint, attribute, assertion, newEvtTypeId)));
     }
-    avgDistancePattern(eventTypeList, givenPoint, attribute, assertion){
+    avgDistancePattern(eventTypeList, givenPoint, attribute, assertion, newEvtTypeId){
         return EventManager.create(this._observable
-            .pipe(rxAvgDistancePattern(eventTypeList, givenPoint, attribute, assertion)));
+            .pipe(rxAvgDistancePattern(eventTypeList, givenPoint, attribute, assertion, newEvtTypeId)));
     }
-    relativeMinDistancePattern(eventTypeList, attribute, assertion){
+    relativeMinDistancePattern(eventTypeList, attribute, assertion, newEvtTypeId){
         return EventManager.create(this._observable
-            .pipe(rxRelativeMinDistancePattern(eventTypeList, attribute, assertion)));
+            .pipe(rxRelativeMinDistancePattern(eventTypeList, attribute, assertion, newEvtTypeId)));
     }
-    relativeMaxDistancePattern(eventTypeList, attribute, assertion){
+    relativeMaxDistancePattern(eventTypeList, attribute, assertion, newEvtTypeId){
         return EventManager.create(this._observable
-            .pipe(rxRelativeMaxDistancePattern(eventTypeList, attribute, assertion)));
+            .pipe(rxRelativeMaxDistancePattern(eventTypeList, attribute, assertion, newEvtTypeId)));
     }
-    relativeAvgDistancePattern(eventTypeList, attribute, assertion){
+    relativeAvgDistancePattern(eventTypeList, attribute, assertion, newEvtTypeId){
         return EventManager.create(this._observable
-            .pipe(rxRelativeAvgDistancePattern(eventTypeList, attribute, assertion)));
+            .pipe(rxRelativeAvgDistancePattern(eventTypeList, attribute, assertion, newEvtTypeId)));
     }
 
     subscribe(observer){
