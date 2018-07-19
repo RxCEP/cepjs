@@ -1,4 +1,4 @@
-const {filter, map} = require('rxjs/operators');
+const {filter, map, tap} = require('rxjs/operators');
 const R = require('ramda');
 const {rxTumblingCountWindow, rxSlidingCountWindow,
     rxHoppingCountWindow, rxTumblingTemporalWindow, rxHoppingTemporalWindow,
@@ -7,7 +7,7 @@ const {rxTumblingCountWindow, rxSlidingCountWindow,
     rxRelativeAvgDistancePattern, project} = require('./rx');
 
 
-const init = (observable, fn) => R.isNil(fn)? observable: observable.pipe(map(mapFn));
+const init = (observable, fn) => R.isNil(fn)? observable: observable.pipe(map(fn));
 
 class EventManager{
     static create(observable, mapFn){
@@ -18,6 +18,10 @@ class EventManager{
 class EventStream {
     constructor(observable){
         this._observable = observable;
+    }
+
+    tap(fn){
+        return EventManager.create(this._observable.pipe(tap(fn)));
     }
 
     //filtering
