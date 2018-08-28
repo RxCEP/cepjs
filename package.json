@@ -9,7 +9,7 @@
     "build:watch": "webpack -w"
   },
   "keywords": [
-    "CEPJS",
+    "CEPjs",
     "Reactive Programming",
     "Complex Event Processing",
     "CEP",
@@ -18,7 +18,7 @@
     "RxCEP"
   ],
   "dependencies": {
-    "rxjs": "6.2.1",
+    "rxjs": "6.2.2",
     "ramda": "0.25.0",
     "geodesy": "1.1.3"
   },
