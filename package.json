@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "build:watch": "webpack -w"
+    "build:watch": "webpack -w",
+    "docs:markdown": "documentation build lib/index.js -f md -o docs/README.md",
+    "docs:html": "documentation build lib/** -f html -o docs/html"
   },
   "keywords": [
     "CEPjs",
@@ -23,9 +25,10 @@
     "geodesy": "1.1.3"
   },
   "devDependencies": {
+    "documentation": "8.1.2",
+    "expose-loader": "0.7.5",
     "webpack": "4.16.0",
-    "webpack-cli": "3.0.8",
-    "expose-loader": "0.7.5"
+    "webpack-cli": "3.0.8"
   },
   "author": "RxCEP",
   "license": "MIT"

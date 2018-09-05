@@ -5,3 +5,5 @@ node_modules/
 .npm
 
 dist/*.html
+
+docs/html/
