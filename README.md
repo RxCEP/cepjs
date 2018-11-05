@@ -5,3 +5,4 @@ CEPjs is a JavaScript library built on top of the widely used ReactiveX library 
 ## Installation
 
 ### Build
+run `npm run build` to build the code and generate the cepjs.js file under the dist folder
