@@ -14,5 +14,7 @@ In the browser:
 ### Build
 run `npm run build` to build the code and generate the cepjs.js file under the dist folder
 
+## Getting Started
+
 ## License
 CEPjs is available under the MIT license. See the LICENSE file for more info.
