@@ -8,44 +8,74 @@
 -   [EventStream][4]
     -   [filter][5]
         -   [Parameters][6]
-    -   [allPattern][7]
+    -   [merge][7]
         -   [Parameters][8]
-    -   [anyPattern][9]
+    -   [project][9]
         -   [Parameters][10]
-    -   [abscencePattern][11]
+    -   [tumblingCountWindow][11]
         -   [Parameters][12]
-    -   [minDistancePattern][13]
+    -   [slidingCountWindow][13]
         -   [Parameters][14]
-    -   [maxDistancePattern][15]
+    -   [hoppingCountWindow][15]
         -   [Parameters][16]
-    -   [avgDistancePattern][17]
+    -   [tumblingTemporalWindow][17]
         -   [Parameters][18]
-    -   [relativeMinDistancePattern][19]
+    -   [hoppingTemporalWindow][19]
         -   [Parameters][20]
-    -   [relativeMaxDistancePattern][21]
+    -   [all][21]
         -   [Parameters][22]
-    -   [relativeAvgDistancePattern][23]
+    -   [any][23]
         -   [Parameters][24]
-    -   [subscribe][25]
+    -   [abscence][25]
         -   [Parameters][26]
--   [StreamSubscription][27]
--   [Hemisphere][28]
-    -   [NORTH][29]
-    -   [SOUTH][30]
--   [Point][31]
-    -   [Parameters][32]
-    -   [latitude][33]
-    -   [latitude][34]
-        -   [Parameters][35]
-    -   [longitude][36]
-    -   [longitude][37]
+    -   [always][27]
+        -   [Parameters][28]
+    -   [sometimes][29]
+        -   [Parameters][30]
+    -   [nHighestValues][31]
+        -   [Parameters][32]
+    -   [nLowestValues][33]
+        -   [Parameters][34]
+    -   [count][35]
+        -   [Parameters][36]
+    -   [valueMax][37]
         -   [Parameters][38]
-    -   [distance][39]
+    -   [valueMin][39]
         -   [Parameters][40]
-    -   [distance][41]
+    -   [valueAvg][41]
         -   [Parameters][42]
-    -   [fromUTM][43]
+    -   [minDistance][43]
         -   [Parameters][44]
+    -   [maxDistance][45]
+        -   [Parameters][46]
+    -   [avgDistance][47]
+        -   [Parameters][48]
+    -   [relativeMinDistance][49]
+        -   [Parameters][50]
+    -   [relativeMaxDistance][51]
+        -   [Parameters][52]
+    -   [relativeAvgDistance][53]
+        -   [Parameters][54]
+    -   [subscribe][55]
+        -   [Parameters][56]
+-   [StreamSubscription][57]
+-   [Hemisphere][58]
+    -   [NORTH][59]
+    -   [SOUTH][60]
+-   [Point][61]
+    -   [Parameters][62]
+    -   [latitude][63]
+    -   [latitude][64]
+        -   [Parameters][65]
+    -   [longitude][66]
+    -   [longitude][67]
+        -   [Parameters][68]
+    -   [distance][69]
+        -   [Parameters][70]
+    -   [distance][71]
+        -   [Parameters][72]
+    -   [fromUTM][73]
+        -   [Parameters][74]
 
 ## EventManager
 
@@ -58,9 +88,9 @@ Create a EventStream instance from a Rx Observable.
 #### Parameters
 
 -   `observable` **Observable** the observable.
--   `mapFn` **[Function][45]?** a mapping function to map Observable's values to an EventType instance.
+-   `mapFn` **[Function][75]?** a mapping function to map Observable's values to an EventType instance.
 
-Returns **[EventStream][46]** an EventStream object.
+Returns **[EventStream][76]** an EventStream object.
 
 ## EventStream
 
@@ -72,91 +102,330 @@ All methods return a new stream instance.
 
 #### Parameters
 
--   `fn` **[Function][45]** 
+-   `fn` **[Function][75]** 
 
-### allPattern
+Returns **[EventStream][76]** a new event stream instance.
 
-#### Parameters
-
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
--   `param` **any** 
-
-### anyPattern
+### merge
 
 #### Parameters
 
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
+-   `stream` **[EventStream][76]** 
 
-### abscencePattern
+Returns **[EventStream][76]** the new stream created from the merge operation.
 
-#### Parameters
-
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
-
-### minDistancePattern
+### project
 
 #### Parameters
 
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
--   `givenPoint` **[Point][49]** 
--   `attribute` **([string][48] \| [Array][47]&lt;[string][48]>)** 
--   `assertion` **[Function][45]** 
--   `newEvtTypeId` **[string][48]** 
+-   `list` **[Array][77]&lt;[string][78]>** 
+-   `newEvtTypeId` **[string][78]** 
 
-### maxDistancePattern
+Returns **[EventStream][76]** a new event stream instance.
 
-#### Parameters
-
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
--   `givenPoint` **[Point][49]** 
--   `attribute` **([string][48] \| [Array][47]&lt;[string][48]>)** 
--   `assertion` **[Function][45]** 
--   `newEvtTypeId` **[string][48]** 
-
-### avgDistancePattern
+### tumblingCountWindow
 
 #### Parameters
 
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
--   `givenPoint` **[Point][49]** 
--   `attribute` **([string][48] \| [Array][47]&lt;[string][48]>)** 
--   `assertion` **[Function][45]** 
--   `newEvtTypeId` **[string][48]** 
+-   `n` **[number][79]** 
 
-### relativeMinDistancePattern
+Returns **[EventStream][76]** a new event stream instance.
+
+### slidingCountWindow
 
 #### Parameters
 
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
--   `attribute` **([string][48] \| [Array][47]&lt;[string][48]>)** 
--   `assertion` **[Function][45]** 
--   `newEvtTypeId` **[string][48]** 
+-   `n` **[number][79]** 
 
-### relativeMaxDistancePattern
+Returns **[EventStream][76]** a new event stream instance.
 
-#### Parameters
-
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
--   `attribute` **([string][48] \| [Array][47]&lt;[string][48]>)** 
--   `assertion` **[Function][45]** 
--   `newEvtTypeId` **[string][48]** 
-
-### relativeAvgDistancePattern
+### hoppingCountWindow
 
 #### Parameters
 
--   `eventTypeList` **[Array][47]&lt;[string][48]>** 
--   `attribute` **([string][48] \| [Array][47]&lt;[string][48]>)** 
--   `assertion` **[Function][45]** 
--   `newEvtTypeId` **[string][48]** 
+-   `n` **[number][79]** 
+-   `hopSize` **[number][79]** 
+
+Returns **[EventStream][76]** a new event stream instance.
+
+### tumblingTemporalWindow
+
+#### Parameters
+
+-   `mSeconds` **[number][79]** 
+
+Returns **[EventStream][76]** a new event stream instance.
+
+### hoppingTemporalWindow
+
+#### Parameters
+
+-   `mSeconds` **[number][79]** 
+-   `hopSize` **[number][79]** 
+
+Returns **[EventStream][76]** a new event stream instance.
+
+### all
+
+Based on the logical conjunction operation, this pattern looks for one instance of each event type ids listed on {@code eventTypeList}.
+Optionally, the pattern accepts an assertion that can be used to define a condition that the matching set should meet.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+-   `assertion` **[Function][75]?** an assertion to be tested against the matching set
+
+Returns **[EventStream][76]** a new event stream instance
+
+### any
+
+Based on the logical disjunction operation, this pattern looks for one event instance of any of event type ids listed on {@code eventTypeList}.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### abscence
+
+Based on the logical negation operation, this pattern is satisfied when there are no event instances listed on {@code eventTypeList}.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation.
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied.
+
+Returns **[EventStream][76]** a new event stream instance.
+
+### always
+
+This pattern is satisfied when all participant events match a given assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `assertion` **[Function][75]** an assertion to be tested against all the participant events
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### sometimes
+
+This pattern is satisfied when at least one participant event matches a given assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `assertion` **[Function][75]** an assertion to be tested against all the participant events
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### nHighestValues
+
+This pattern selects a subset of the participant events with the n highest values of a given event attribute.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `n` **[number][79]** the number of events to be selected according to the highest value criteria
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the given event attribute to be considered. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### nLowestValues
+
+This pattern selects a subset of the participant events with the n lowest values of a given event attribute.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `n` **[number][79]** the number of events to be selected according to the lowest value criteria
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the given event attribute to be considered. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### count
+
+This pattern counts the number of the participant events (those events whose ids are listed on eventTypeList) and
+tests an assertion against this value. This operation works on chunks of the stream, so it must be preceded by some
+window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `assertion` **[Function][75]** a threshold assertion to be used against the number of instances
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### valueMax
+
+This pattern selects an event attribute in every participant events and tests its maximal value against a threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the instances' attribute to be examined. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the maximal value of the given attribute
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### valueMin
+
+This pattern selects an event attribute in every participant events and tests its minimal value against a threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the instances' attribute to be examined. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the minimal value of the given attribute
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### valueAvg
+
+This pattern selects an event attribute in every participant events and tests its average value against a threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the instances' attribute to be examined. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the average value of the given attribute
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied.
+
+Returns **[EventStream][76]** a new event stream instance
+
+### minDistance
+
+This pattern is matched when the minimal distance of the events' locations from a given point satisfies a given threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation.
+-   `givenPoint` **[Point][80]** a fixed point location used to calculate the absolute distance
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the common attribute carried by all event occurrences that is used to
+    calculate the distance between the events' locations and the given point. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the minimal distance
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### maxDistance
+
+This pattern is matched when the maximal distance of the events' locations from a given point satisfies a given threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `givenPoint` **[Point][80]** a fixed point location used to calculate the absolute distance
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the common attribute carried by all event occurrences that is used to
+    calculate the distance between the events' locations and the given point. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the maximal distance
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### avgDistance
+
+This pattern is matched when the average distance of the events' locations from a given point satisfies a given threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation
+-   `givenPoint` **[Point][80]** a fixed point location used to calculate the absolute distance
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the common attribute carried by all event occurrences that is used to
+    calculate the distance between the events' locations and the given point. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the average distance
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### relativeMinDistance
+
+This pattern is matched when the minimal distance among the events' locations satisfies a given threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation.
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the common attribute carried by all event occurrences that is used to
+    calculate the distance among the events' locations. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the relative minimal distance
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### relativeMaxDistance
+
+This pattern is matched when the minimal distance among the events' locations satisfies a given threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation.
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the common attribute carried by all event occurrences that is used to
+    calculate the distance among the events' locations. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the relative maximal distance
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
+
+### relativeAvgDistance
+
+This pattern is matched when the minimal distance among the events' locations satisfies a given threshold assertion.
+This operation works on chunks of the stream, so it must be preceded by some window operation.
+
+#### Parameters
+
+-   `eventTypeList` **[Array][77]&lt;[string][78]>** a list containing the event types that are to be considered in the pattern operation.
+-   `attribute` **([string][78] \| [Array][77]&lt;([string][78] \| [number][79])>)** the common attribute carried by all event occurrences that is used to
+    calculate the distance among the events' locations. It can either be a simple string for a simple
+    attribute or an array of strings and/or numbers in the case of a nesting structure indicating the path to the attribute
+-   `assertion` **[Function][75]** a threshold assertion to be used against the relative average distance
+-   `newEvtTypeId` **[string][78]** the event type id of new event generated when the pattern is satisfied
+
+Returns **[EventStream][76]** a new event stream instance
 
 ### subscribe
 
+Subscribes to an event stream
+
 #### Parameters
 
--   `observer` **Observer** 
+-   `observer` **[Object][81]** an [Observer][82] object containing at least a next method
 
-Returns **[StreamSubscription][50]** 
+Returns **[StreamSubscription][83]** a StreamSubscription instance that allows further unsubscription
 
 ## StreamSubscription
 
@@ -170,13 +439,13 @@ Helper class for locations gathering the constants used to represent hemisphere 
 
 Return a constant representing the hemisphere north.
 
-Returns **[string][48]** hemisphere north.
+Returns **[string][78]** hemisphere north.
 
 ### SOUTH
 
 Return a constant representing the hemisphere south.
 
-Returns **[string][48]** hemisphere south.
+Returns **[string][78]** hemisphere south.
 
 ## Point
 
@@ -184,14 +453,14 @@ Class used to represent a given point location.
 
 ### Parameters
 
--   `latitude` **[number][51]** The latitude value.
--   `longitude` **[number][51]** The longitude value.
+-   `latitude` **[number][79]** The latitude value.
+-   `longitude` **[number][79]** The longitude value.
 
 ### latitude
 
 Get the latitude value.
 
-Returns **[number][51]** The latitude value.
+Returns **[number][79]** The latitude value.
 
 ### latitude
 
@@ -199,13 +468,13 @@ Set the longitude value.
 
 #### Parameters
 
--   `latitude` **[number][51]** the latitude value to be set.
+-   `latitude` **[number][79]** the latitude value to be set.
 
 ### longitude
 
 Get the longitude value.
 
-Returns **[number][51]** The longitude value.
+Returns **[number][79]** The longitude value.
 
 ### longitude
 
@@ -213,7 +482,7 @@ Set the longitude value.
 
 #### Parameters
 
--   `longitude` **[number][51]** the longitude value to be set.
+-   `longitude` **[number][79]** the longitude value to be set.
 
 ### distance
 
@@ -221,10 +490,10 @@ Calculate the distance between this instance and a second point.
 
 #### Parameters
 
--   `point2` **[Point][49]** the second point.
--   `fixed` **[number][51]** the precision of the result.
+-   `point2` **[Point][80]** the second point.
+-   `fixed` **[number][79]** the precision of the result.
 
-Returns **[number][51]** the distance.
+Returns **[number][79]** the distance.
 
 ### distance
 
@@ -232,11 +501,11 @@ Calculate the distance between two given points.
 
 #### Parameters
 
--   `point1` **[Point][49]** the first point.
--   `point2` **[Point][49]** the second point.
--   `fixed` **[number][51]** the precision of the result.
+-   `point1` **[Point][80]** the first point.
+-   `point2` **[Point][80]** the second point.
+-   `fixed` **[number][79]** the precision of the result.
 
-Returns **[number][51]** the distance.
+Returns **[number][79]** the distance.
 
 ### fromUTM
 
@@ -244,12 +513,12 @@ Instatiate a point from UTM coordinates.
 
 #### Parameters
 
--   `zone` **[number][51]** the UTM zone.
--   `hemisphere` **[string][48]** the hemisphere north or south. Use [Hemisphere.NORTH][52] or [Hemisphere.SOUTH][53].
--   `easting` **[number][51]** the easting coordinate.
--   `northing` **[number][51]** the northing coordinate.
+-   `zone` **[number][79]** the UTM zone.
+-   `hemisphere` **[string][78]** the hemisphere north or south. Use [Hemisphere.NORTH][84] or [Hemisphere.SOUTH][85].
+-   `easting` **[number][79]** the easting coordinate.
+-   `northing` **[number][79]** the northing coordinate.
 
-Returns **[Point][49]** a point instance.
+Returns **[Point][80]** a point instance.
 
 [1]: #eventmanager
 
@@ -263,96 +532,160 @@ Returns **[Point][49]** a point instance.
 
 [6]: #parameters-1
 
-[7]: #allpattern
+[7]: #merge
 
 [8]: #parameters-2
 
-[9]: #anypattern
+[9]: #project
 
 [10]: #parameters-3
 
-[11]: #abscencepattern
+[11]: #tumblingcountwindow
 
 [12]: #parameters-4
 
-[13]: #mindistancepattern
+[13]: #slidingcountwindow
 
 [14]: #parameters-5
 
-[15]: #maxdistancepattern
+[15]: #hoppingcountwindow
 
 [16]: #parameters-6
 
-[17]: #avgdistancepattern
+[17]: #tumblingtemporalwindow
 
 [18]: #parameters-7
 
-[19]: #relativemindistancepattern
+[19]: #hoppingtemporalwindow
 
 [20]: #parameters-8
 
-[21]: #relativemaxdistancepattern
+[21]: #all
 
 [22]: #parameters-9
 
-[23]: #relativeavgdistancepattern
+[23]: #any
 
 [24]: #parameters-10
 
-[25]: #subscribe
+[25]: #abscence
 
 [26]: #parameters-11
 
-[27]: #streamsubscription
+[27]: #always
 
-[28]: #hemisphere
+[28]: #parameters-12
 
-[29]: #north
+[29]: #sometimes
 
-[30]: #south
+[30]: #parameters-13
 
-[31]: #point
+[31]: #nhighestvalues
 
-[32]: #parameters-12
+[32]: #parameters-14
 
-[33]: #latitude
+[33]: #nlowestvalues
 
-[34]: #latitude-1
+[34]: #parameters-15
 
-[35]: #parameters-13
+[35]: #count
 
-[36]: #longitude
+[36]: #parameters-16
 
-[37]: #longitude-1
+[37]: #valuemax
 
-[38]: #parameters-14
+[38]: #parameters-17
 
-[39]: #distance
+[39]: #valuemin
 
-[40]: #parameters-15
+[40]: #parameters-18
 
-[41]: #distance-1
+[41]: #valueavg
 
-[42]: #parameters-16
+[42]: #parameters-19
 
-[43]: #fromutm
+[43]: #mindistance
 
-[44]: #parameters-17
+[44]: #parameters-20
 
-[45]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[45]: #maxdistance
 
-[46]: #eventstream
+[46]: #parameters-21
 
-[47]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[47]: #avgdistance
 
-[48]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[48]: #parameters-22
 
-[49]: #point
+[49]: #relativemindistance
 
-[50]: #streamsubscription
+[50]: #parameters-23
 
-[51]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[51]: #relativemaxdistance
 
-[52]: #hemispherenorth
+[52]: #parameters-24
 
-[53]: #hemispheresouth
+[53]: #relativeavgdistance
+
+[54]: #parameters-25
+
+[55]: #subscribe
+
+[56]: #parameters-26
+
+[57]: #streamsubscription
+
+[58]: #hemisphere
+
+[59]: #north
+
+[60]: #south
+
+[61]: #point
+
+[62]: #parameters-27
+
+[63]: #latitude
+
+[64]: #latitude-1
+
+[65]: #parameters-28
+
+[66]: #longitude
+
+[67]: #longitude-1
+
+[68]: #parameters-29
+
+[69]: #distance
+
+[70]: #parameters-30
+
+[71]: #distance-1
+
+[72]: #parameters-31
+
+[73]: #fromutm
+
+[74]: #parameters-32
+
+[75]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[76]: #eventstream
+
+[77]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[78]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[79]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[80]: #point
+
+[81]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[82]: http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~ObserverDoc.html
+
+[83]: #streamsubscription
+
+[84]: #hemispherenorth
+
+[85]: #hemispheresouth
