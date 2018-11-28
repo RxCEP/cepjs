@@ -20,6 +20,7 @@
     "RxCEP"
   ],
   "dependencies": {
+    "date-fns": "1.29.0",
     "rxjs": "6.2.2",
     "ramda": "0.25.0",
     "geodesy": "1.1.3"
