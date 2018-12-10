@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  entry: './lib/index.js',
-  mode: 'development',
+  entry: './lib',
+  mode: 'production',
   output: {
     path: path.resolve('dist'),
     filename: 'cepjs.js',
