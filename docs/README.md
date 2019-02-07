@@ -79,7 +79,7 @@
     -   [Parameters][75]
 -   [any][76]
     -   [Parameters][77]
--   [abscence][78]
+-   [absence][78]
     -   [Parameters][79]
 -   [minDistance][80]
     -   [Parameters][81]
@@ -135,21 +135,21 @@
     -   [OCCURRENCE_TIME][131]
     -   [DETECTION_TIME][132]
     -   [STREAM_POSITION][133]
--   [recurrence][134]
-    -   [NONE][135]
-    -   [DAYLY][136]
-    -   [WEEKLY][137]
-    -   [MONTHLY][138]
-    -   [YEARLY][139]
+-   [EventStream][134]
+    -   [pipe][135]
+        -   [Parameters][136]
+    -   [subscribe][137]
+        -   [Parameters][138]
+-   [StreamSubscription][139]
 -   [ordering][140]
     -   [OCCURRENCE_TIME][141]
     -   [DETECTION_TIME][142]
--   [EventStream][143]
-    -   [pipe][144]
-        -   [Parameters][145]
-    -   [subscribe][146]
-        -   [Parameters][147]
--   [StreamSubscription][148]
+-   [recurrence][143]
+    -   [NONE][144]
+    -   [DAYLY][145]
+    -   [WEEKLY][146]
+    -   [MONTHLY][147]
+    -   [YEARLY][148]
 
 ## Point
 
@@ -159,17 +159,6 @@ Class used to represent a given point location.
 
 -   `latitude` **[number][149]** The latitude value.
 -   `longitude` **[number][149]** The longitude value.
-
-### distance
-
-Get the longitude value.
-
-#### Parameters
-
--   `point2`  
--   `fixed`  
-
-Returns **[number][149]** The longitude value.
 
 ### distance
 
@@ -184,13 +173,25 @@ Returns **[number][149]** the distance in meters (metres).
 
 ### distance
 
-Set the longitude value.
+Get the longitude value.
 
 #### Parameters
 
 -   `point2`  
 -   `fixed`  
--   `longitude` **[number][149]** the longitude value to be set.
+
+Returns **[number][149]** The longitude value.
+
+### distance
+
+Get the latitude value.
+
+#### Parameters
+
+-   `point2`  
+-   `fixed`  
+
+Returns **[number][149]** The latitude value.
 
 ### distance
 
@@ -204,14 +205,13 @@ Set the longitude value.
 
 ### distance
 
-Get the latitude value.
+Set the longitude value.
 
 #### Parameters
 
 -   `point2`  
 -   `fixed`  
-
-Returns **[number][149]** The latitude value.
+-   `longitude` **[number][149]** the longitude value to be set.
 
 ### toString
 
@@ -433,7 +433,7 @@ Returns **[EventStream][155]** a new event stream instance.
 ## slidingCountWindow
 
 Splits the stream into sets of fixed size. Additionally, it receives a second parameter 
-that control when a new window must be open. If the slidingInterval is less than the window size, it will
+that control when a new window must be open. If slidingInterval is less than the window size, it will
 produce overlapping sets.
 
 ### Parameters
@@ -457,7 +457,7 @@ Returns **[EventStream][155]** a new event stream instance.
 ## slidingTimeWindow
 
 Splits the stream into sets of time-based fixed size. Additionally, it receives a second parameter 
-that control when a new window must be open. If the slidingInterval is less than the timeSize, it will
+that control when a new window must be open. If slidingInterval is less than timeSize, it will
 produce overlapping sets.
 
 ### Parameters
@@ -533,7 +533,7 @@ This operation works on chunks of the stream, so it must be preceded by some win
 
 Returns **[EventStream][155]** a new event stream instance.
 
-## abscence
+## absence
 
 Based on the logical negation operation, this pattern is satisfied when there are no event instances listed on {@code eventTypeList}.
 This operation works on chunks of the stream, so it must be preceded by some window operation.
@@ -899,6 +899,51 @@ Detection time policy
 
 Stream position policy
 
+## EventStream
+
+Class representing an event stream.
+It provides CEP functionalities by encapsulating and manipulating a given reactive stream.
+All methods return a new stream instance.
+
+### pipe
+
+Compose a set of operations from left-to-right to be executed as soon as the stream is subscribed.
+
+#### Parameters
+
+-   `operations` **[Array][159]&lt;[Function][154]>** a set of future operations.
+
+Returns **[EventStream][155]** a new event stream instance.
+
+### subscribe
+
+Subscribes to an event stream.
+
+#### Parameters
+
+-   `observer` **[Object][162]** an observer object that closely follows the observer proposed 
+    in [observable proposal][163].
+    The observer must have at least a next method to receive/deal with the stream values.
+
+Returns **[StreamSubscription][164]** a StreamSubscription instance that allows further unsubscription.
+
+## StreamSubscription
+
+Class that encapsulates the underlying observable subscription.
+It closely follows the subscription of the [observable proposal][163].
+
+## ordering
+
+Enum for ordering options.
+
+### OCCURRENCE_TIME
+
+Occurrence time ordering
+
+### DETECTION_TIME
+
+Detection time ordering
+
 ## recurrence
 
 Enum for types of recurrence.
@@ -922,47 +967,6 @@ Monthly recurrence
 ### YEARLY
 
 Yearly recurrence
-
-## ordering
-
-Enum for ordering options.
-
-### OCCURRENCE_TIME
-
-Occurrence time ordering
-
-### DETECTION_TIME
-
-Detection time ordering
-
-## EventStream
-
-Class representing an event stream.
-It provides CEP functionalities by encapsulating and manipulating a given reactive stream.
-All methods return a new stream instance.
-
-### pipe
-
-#### Parameters
-
--   `operations` **...any** 
--   `args` **[Array][159]&lt;[Function][154]>** 
-
-Returns **[EventStream][155]** a new event stream instance.
-
-### subscribe
-
-Subscribes to an event stream.
-
-#### Parameters
-
--   `observer` **[Object][162]** an [Observer][163] object containing at least a next method.
-
-Returns **[StreamSubscription][164]** a StreamSubscription instance that allows further unsubscription.
-
-## StreamSubscription
-
-Class that encapsulates the underlying observable subscription.
 
 [1]: #point
 
@@ -1118,7 +1122,7 @@ Class that encapsulates the underlying observable subscription.
 
 [77]: #parameters-34
 
-[78]: #abscence
+[78]: #absence
 
 [79]: #parameters-35
 
@@ -1230,17 +1234,17 @@ Class that encapsulates the underlying observable subscription.
 
 [133]: #stream_position
 
-[134]: #recurrence
+[134]: #eventstream
 
-[135]: #none
+[135]: #pipe
 
-[136]: #dayly
+[136]: #parameters-61
 
-[137]: #weekly
+[137]: #subscribe
 
-[138]: #monthly
+[138]: #parameters-62
 
-[139]: #yearly
+[139]: #streamsubscription
 
 [140]: #ordering
 
@@ -1248,17 +1252,17 @@ Class that encapsulates the underlying observable subscription.
 
 [142]: #detection_time-1
 
-[143]: #eventstream
+[143]: #recurrence
 
-[144]: #pipe
+[144]: #none
 
-[145]: #parameters-61
+[145]: #dayly
 
-[146]: #subscribe
+[146]: #weekly
 
-[147]: #parameters-62
+[147]: #monthly
 
-[148]: #streamsubscription
+[148]: #yearly
 
 [149]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
@@ -1288,6 +1292,6 @@ Class that encapsulates the underlying observable subscription.
 
 [162]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[163]: http://reactivex.io/rxjs/class/es6/MiscJSDoc.js~ObserverDoc.html
+[163]: https://github.com/tc39/proposal-observable
 
 [164]: #streamsubscription
