@@ -16,9 +16,7 @@
   "keywords": [],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "build:development": "webpack --mode development",
-    "build:watch": "webpack -w"
+    "build": "webpack && webpack --mode development"
   },
   "dependencies": {
     "date-fns": "^1.30.1",
@@ -31,7 +29,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
     "@babel/preset-env": "^7.3.1",
     "babel-loader": "^8.0.5",
-    "webpack": "^4.29.4",
-    "webpack-cli": "^3.2.3"
+    "webpack": "4.29.4",
+    "webpack-cli": "3.2.3"
   }
 }
