@@ -1,8 +1,7 @@
 {
-  "name": "cepjs",
-  "version": "1.0.0",
+  "name": "cepjs-monorepo",
+  "private": true,
   "description": "",
-  "main": "./lib",
   "license": "MIT",
   "author": "RxCEP (github.com/RxCEP)",
   "homepage": "https://github.com/RxCEP/cepjs#readme",
@@ -13,31 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/RxCEP/cepjs"
   },
-  "keywords": [
-    "cep.js",
-    "complex event processing",
-    "reactive programming",
-    "most",
-    "mostjs",
-    "rxjs",
-    "ReactiveX"
-  ],
   "scripts": {
-    "build": "webpack && webpack --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "date-fns": "^1.30.1",
-    "each-cons": "^1.0.0",
-    "geodesy": "^2.0.1",
-    "lodash": "^4.17.11"
+    "bootstrap": "lerna bootstrap --hoist",
+    "release": "lerna publish"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "babel-loader": "^8.0.5",
-    "webpack": "4.29.4",
-    "webpack-cli": "3.2.3"
+    "lerna": "^3.13.4"
   }
 }

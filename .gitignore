@@ -1,9 +1,7 @@
 # Dependency directories
 node_modules/
-
 # Optional npm cache directory
 .npm
-
 dist/
-
-docs/html/
+lerna-debug.log
+npm-debug.log
