@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-    [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+    <a href="https://lerna.js.org/"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" alt="lerna"></a>
 </p>
 
 CEP.js is a JavaScript library built on top of the widely used ReactiveX library for JavaScript ([RxJS](https://github.com/ReactiveX/rxjs)). It encompasses common complex event processing (CEP) operations revolving around filtering, transformation, and pattern detection.
