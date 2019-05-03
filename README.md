@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/4553211/57116521-116f3480-6d2c-11e9-9c7c-b025a28398a3.png" alt="cepjs logo">
+    <img src="https://user-images.githubusercontent.com/4553211/57117984-77f95000-6d36-11e9-80b1-522d9e96a9f7.png" alt="cepjs logo">
 </p>
 
 <p align="center">
