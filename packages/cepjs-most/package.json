@@ -1,0 +1,41 @@
+{
+  "name": "cepjs-most",
+  "version": "1.0.0",
+  "description": "Bundles the most.js packages required for using CEP.js",
+  "main": "./lib",
+  "license": "MIT",
+  "author": "RxCEP (github.com/RxCEP)",
+  "homepage": "https://github.com/RxCEP/cepjs/tree/master/packages/cepjs-most#readme",
+  "bugs": {
+    "url": "https://github.com/RxCEP/cepjs/tree/master/packages/cepjs-most/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RxCEP/cepjs/tree/master/packages/cepjs-most.git"
+  },
+  "keywords": [],
+  "scripts": {
+    "build": "webpack && webpack --mode development",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@most/core": "^1.3.4",
+    "@most/dom-event": "^2.0.0",
+    "@most/scheduler": "^1.2.2",
+    "most-from-array": "^1.0.2",
+    "most-from-event": "^1.1.2",
+    "most-rx-utils": "^1.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "webpack": "4.29.4",
+    "webpack-cli": "3.2.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
