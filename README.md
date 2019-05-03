@@ -10,6 +10,12 @@
     <a href="https://lerna.js.org/"><img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" alt="lerna"></a>
 </p>
 
+- [About](#about)
+- [Installation](#installation)
+- [Usage](#usage)
+
+## About
+
 CEP.js is a JavaScript library built on top of the widely used ReactiveX library for JavaScript ([RxJS](https://github.com/ReactiveX/rxjs)). It encompasses common complex event processing (CEP) operations revolving around filtering, transformation, and pattern detection.
 
 ## Installation
@@ -24,7 +30,7 @@ In the browser:
 ### Build
 run `npm run build` to build the code and generate the cep.js file under the dist folder
 
-## Getting Started
+## Usage
 
 ## License
-CEP.js is available under the MIT license. See the [LICENSE file](https://github.com/RxCEP/cepjs/blob/master/LICENSE) for more info.
+CEP.js is available under the MIT license. See the [LICENSE](https://github.com/RxCEP/cepjs/blob/master/LICENSE) file for more info.
