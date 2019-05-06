@@ -1,6 +1,6 @@
 # cepjs-rx
 
-> Most.js dependencies.
+> RxJS dependencies.
 
 ## Install
 
