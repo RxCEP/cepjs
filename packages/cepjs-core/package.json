@@ -15,7 +15,8 @@
   },
   "keywords": [],
   "scripts": {
-    "build": "webpack && webpack --mode development",
+    "build": "webpack && webpack --opts dev",
+    "build:es5": "webpack --opts es5 && webpack --opts dev:es5",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

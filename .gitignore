@@ -3,6 +3,7 @@ node_modules/
 # Optional npm cache directory
 .npm
 dist/
+dist.es5/
 lerna-debug.log
 npm-debug.log
 .idea

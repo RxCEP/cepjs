@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/4553211/57202520-aff1d480-6f7c-11e9-9504-9ae216d7dc12.png" alt="cepjs logo">
+    <img src="https://user-images.githubusercontent.com/4553211/57256072-1255de00-702c-11e9-9e38-479d4f4ac34f.png" alt="cepjs logo">
 </p>
 
 <p align="center">
@@ -29,14 +29,17 @@ npm install --save cepjs-core cepjs-most
 ```
 browser:
 ```html
-<script src="path_to_cepjs-core/dist/cepjsCore.js"></script>
+<script src="path_to_cepjs-core/dist/cepjsCore.min.js"></script>
 <!-- In case RxJS will be used -->
-<script src="path_to_cepjs-rx/dist/cepjsRx.js"></script>
+<script src="path_to_cepjs-rx/dist/cepjsRx.min.js"></script>
 <!-- In case Most.js will be used instead -->
-<script src="path_to_cepjs-most/dist/cepjsMost.js"></script>
+<script src="path_to_cepjs-most/dist/cepjsMost.min.js"></script>
 ```
 ### Build
-The packages available through npm already include distribution files under the dist folder. Alternatively, one can execute the command `npm run build` within the root folder of any package to build the code and generate the distribution files.
+The packages, available through npm, already include distribution files under the dist folder. Alternatively, one can execute the command `npm run build` within the root folder of any package to build the code and generate the distribution files.
+
+### ES5 Note
+This is a project that heavily uses ES2015(ES6) syntax. However, each package includes an additional script that allows to generate distribution files targeting ES5. The command to run the script is `npm run build:es5`. After executing the script, the files will be available in the `dist.es5` folder.
 
 ## Usage
 The first step to take is to import the [core](./packages/cepjs-core) package. The package exports a factory function expecting to be passed in any of the custom reactive [packages](REACTIVE-LIBRARIES.md) chose during installation. All of the operations are then available under the same namespace. The following **_simple_** snippet exemplify those steps and usage.

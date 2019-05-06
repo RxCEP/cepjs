@@ -5,31 +5,40 @@ const config = {
   mode: 'production',
   output: {
     path: path.resolve('dist'),
-    filename: 'cep_rx.min.js',
+    filename: 'cepjsRx.min.js',
     library: 'cepjsRx'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread']
-          }
-        }
-      }
-    ]
   }
 };
 
+const es5Config = {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-proposal-object-rest-spread']
+        }
+      }
+    }
+  ]
+};
+
 module.exports = (env, argv) => {
-  
-  if(argv.mode === 'development'){
-    config.mode = argv.mode;
-    config.output.filename = 'cep_rx.js';
+
+  if (argv.opts) {
+    const opts = argv.opts.split(':');
+    if (opts.some(opt => opt === 'dev')) {
+      config.mode = 'development';
+      config.output.filename = 'cepjsRx.js';
+    }
+
+    if (opts.some(opt => opt === 'es5')) {
+      config.output.path = path.resolve('dist.es5');
+      config.module = es5Config;
+    }
   }
   
   return config;

@@ -1,36 +1,45 @@
 const path = require('path');
 
-const config = {
+let config = {
   entry: './lib',
   mode: 'production',
   output: {
     path: path.resolve('dist'),
-    filename: 'cep.min.js',
-    library: 'cepjs'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-object-rest-spread']
-          }
-        }
-      }
-    ]
+    filename: 'cepjsCore.min.js',
+    library: 'cepjsCore'
   }
 };
 
+const es5Config = {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-proposal-object-rest-spread']
+        }
+      }
+    }
+  ]
+};
+
 module.exports = (env, argv) => {
-  
-  if(argv.mode === 'development'){
-    config.mode = argv.mode;
-    config.output.filename = 'cep.js';
+
+  if (argv.opts) {
+    const opts = argv.opts.split(':');
+    if (opts.some(opt => opt === 'dev')) {
+      config.mode = 'development';
+      config.output.filename = 'cepjsCore.js';
+    }
+
+    if (opts.some(opt => opt === 'es5')) {
+      config.output.path = path.resolve('dist.es5');
+      config.module = es5Config;
+    }
   }
-  
+
   return config;
 }
