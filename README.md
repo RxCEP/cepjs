@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/4553211/57117984-77f95000-6d36-11e9-80b1-522d9e96a9f7.png" alt="cepjs logo">
+    <img src="https://user-images.githubusercontent.com/4553211/57202520-aff1d480-6f7c-11e9-9504-9ae216d7dc12.png" alt="cepjs logo">
 </p>
 
 <p align="center">
@@ -11,21 +11,31 @@
 </p>
 
 - [About](#about)
-- [Installation](#installation)
+- [Install](#install)
 - [Usage](#usage)
 
 ## About
 
-CEP.js is a JavaScript library built on top of the widely used ReactiveX library for JavaScript ([RxJS](https://github.com/ReactiveX/rxjs)). It encompasses common complex event processing (CEP) operations revolving around filtering, transformation, and pattern detection.
+CEP.js is a JavaScript library for coding complex event processing (CEP) reactively. It works as a big adapter, accepting different reactive libraries to express event processing operations while leveraging a sintax model close to the widely used ReactiveX for JavaScript ([RxJS](https://github.com/ReactiveX/rxjs)). Besides usual RxJS operations regarding stream manipulation, it also bundles common complex event processing (CEP) operations revolving around filtering, transformation, and **specially pattern detection**.
 
-## Installation
-In Node.js (available soon):
+## Install
+
+Before continuing with installation, one must choose among the supported reactive libraries. In order to better manage those reactive libraries, they are organized in distinct packages bundling all necessary dependencies. See the [reactive libraries]() file to find more information on the reactive libraries and the respective packages.
+
+npm:
+```ssh
+# either
+npm install -save cepjs-core cepjs-rx
+# or
+npm install -save cepjs-core cepjs-most
 ```
-$ npm install cepjs
-```
-In the browser:
+browser:
 ```html
-<script src="pathToCEPjs/dist/cep.js"></script>
+<script src="path_to_cepjs-core/dist/cepjsCore.js"></script>
+<!-- In case RxJS will be used -->
+<script src="path_to_cepjs-rx/dist/cepjsRx.js"></script>
+<!-- In case Most.js will be used instead -->
+<script src="path_to_cepjs-most/dist/cepjsMost.js"></script>
 ```
 ### Build
 run `npm run build` to build the code and generate the cep.js file under the dist folder
