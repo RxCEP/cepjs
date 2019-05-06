@@ -20,7 +20,7 @@ CEP.js is a JavaScript library for coding complex event processing (CEP) reactiv
 
 ## Install
 
-Before continuing with installation, one must choose among the supported reactive libraries. In order to better manage those reactive libraries, they are organized in distinct packages bundling all necessary dependencies. See the [reactive libraries](./REACTIVE-LIBRARIES.md) file to find more information on the reactive libraries and the respective packages.
+Before continuing with installation, one must choose among the supported reactive libraries. In order to better manage those reactive libraries, they are organized in distinct packages bundling all necessary dependencies. See the [reactive libraries](REACTIVE-LIBRARIES.md) file to find more information on the reactive libraries and the respective packages.
 
 npm:
 ```ssh
