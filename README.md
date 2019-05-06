@@ -39,8 +39,9 @@ browser:
 The packages available through npm already include distribution files under the dist folder. Alternatively, one can execute the command `npm run build` within the root folder of any package to build the code and generate the distribution files.
 
 ## Usage
-The first step to take is to require the [core](./packages/cepjs-core) package. The package exports a factory function expecting to be passed in any of the custom reactive [packages](REACTIVE-LIBRARIES.md) chose during installation. All of the operations are then available under the same namespace. The following **_simple_** snippet exemplify those steps and usage.
+The first step to take is to import the [core](./packages/cepjs-core) package. The package exports a factory function expecting to be passed in any of the custom reactive [packages](REACTIVE-LIBRARIES.md) chose during installation. All of the operations are then available under the same namespace. The following **_simple_** snippet exemplify those steps and usage.
 
+### CommonJS
 ```JavaScript
 const coreFactory = require('cepjs-core');
 const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(require('cepjs-rx'));
@@ -60,6 +61,28 @@ let subscription =
             console.log(`Detected at ${new Date(derivedEvent.detectionTime)}`)
         });
 ```
+### IIFE (browser)
+```JavaScript
+const coreFactory = cepjsCore;
+const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(cepjsRx);
+
+let clickStream = fromEvent(document, 'click',
+    domEvent => new EventType('click event', 'DOM', Date.now()));
+
+let keyPressStream = fromEvent(document, 'keypress',
+    domEvent => new EventType('key press event', 'DOM', Date.now()));
+
+let subscription =
+      merge(clickStream, keyPressStream)
+        .pipe(tumblingTimeWindow(1000),
+          all(['click event', 'key press event'], 'click & press'))
+        .subscribe({
+          next: derivedEvent =>
+            console.log(`Detected at ${new Date(derivedEvent.detectionTime)}`)
+        });
+```
+
+
 Note that the syntax is almost identical to RxJS's, using the _pipe_ operator to derive business logic. As an alternative, a _compose_ operator is also available to compose functions from right to left, following a more natural compositional order.
 
 ## License
