@@ -30,6 +30,8 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
+    "cepjs-most": "^1.0.0",
+    "cepjs-rx": "^1.0.0",
     "webpack": "4.29.4",
     "webpack-cli": "3.2.3"
   },
