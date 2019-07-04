@@ -1,4 +1,4 @@
-const _ = require('lodash/fp');
+const _ = require('lodash');
 
 const EventStream = require('../eventstream');
 const eventStream = EventStream.eventStream;
@@ -16,11 +16,11 @@ module.exports = function createFactoryOperators(cepjsRx) {
     const currTime = Date.now();
 
     return stream.pipe(map(adaptor),
-      map(checkOccurrenceTime(currTime)), map(_.set('_detectionTime', currTime)));
+      map(checkOccurrenceTime(currTime)), map(evt => _.set(evt, '_detectionTime', currTime)));
   }
 
   const generateStreamWithoutAdaptor = (evtTypeId, stream) =>
-    stream.pipe(map(val => _.set('payload', val, generateNewEvtOccurrence(evtTypeId, Date.now()))))
+    stream.pipe(map(val => _.set(generateNewEvtOccurrence(evtTypeId, Date.now()), 'payload', val)));
 
   const operators = {};
 

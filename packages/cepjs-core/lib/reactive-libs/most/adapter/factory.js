@@ -1,4 +1,5 @@
-const _ = require('lodash/fp');
+const _ = require('lodash');
+const _FP = require('lodash/fp');
 
 const EventStream = require('../eventstream');
 const eventStream = EventStream.eventStream;
@@ -18,16 +19,16 @@ module.exports = function createFactoryOperators(cepjsMost) {
   const generateStreamWithAdaptor = (adaptor, stream) => {
     const currTime = Date.now();
 
-    return eventStream(map(_.set('_detectionTime', currTime),
+    return eventStream(map(evt => _.set(evt, '_detectionTime', currTime),
       map(checkOccurrenceTime(currTime),
         map(adaptor, stream))));
   }
 
   const generateStreamWithoutAdaptor = (evtTypeId, stream) =>
-    map(val => _.set('payload', val, generateNewEvtOccurrence(evtTypeId, Date.now())),
+    map(val => _.set(generateNewEvtOccurrence(evtTypeId, Date.now()), 'payload', val),
       stream);
 
-  const selectFromOp = source => source instanceof Promise ? fromPromise : _.compose(fromArray, Array.from);
+  const selectFromOp = source => source instanceof Promise ? fromPromise : _FP.compose(fromArray, Array.from);
 
   const selectFromEventOp = target => target instanceof Element ?
     domEvent : (eventName, emitter, $) => fromEvent(eventName, emitter);

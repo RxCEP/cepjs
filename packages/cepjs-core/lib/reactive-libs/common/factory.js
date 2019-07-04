@@ -1,14 +1,16 @@
-const _ = require('lodash/fp');
+const _ = require('lodash');
 
 const EventType = require('../../eventtype');
 
 const generateNewEvtOccurrence = (eventTypeId, currTime = Date.now()) => {
-  return _.set('_detectionTime', currTime,
-    new EventType(eventTypeId, `${eventTypeId} operation`, currTime));
+  return _.set(
+    new EventType(eventTypeId, `${eventTypeId} operation`, currTime),
+    '_detectionTime',
+    currTime);
 }
 
 const checkOccurrenceTime = timestamp => evt =>
-  evt.occurrenceTime ? evt : _.set('occurrenceTime', timestamp, evt);
+  evt.occurrenceTime ? evt : _.set(evt, 'occurrenceTime', timestamp);
 
 const generateFromEventStream =
   (target, eventName, useCapture, adaptor, generateStreamAdaptor, generateStreamNoAdaptor, factoryOp) => {
