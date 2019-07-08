@@ -20,7 +20,7 @@ module.exports = function createFactoryOperators(cepjsRx) {
   }
 
   const generateStreamWithoutAdaptor = (evtTypeId, stream) =>
-    stream.pipe(map(val => _.set(generateNewEvtOccurrence(evtTypeId, Date.now()), 'payload', val)));
+    stream.pipe(map(val => _.set(generateNewEvtOccurrence(evtTypeId), 'payload', val)));
 
   const operators = {};
 

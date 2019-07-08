@@ -25,7 +25,7 @@ module.exports = function createFactoryOperators(cepjsMost) {
   }
 
   const generateStreamWithoutAdaptor = (evtTypeId, stream) =>
-    map(val => _.set(generateNewEvtOccurrence(evtTypeId, Date.now()), 'payload', val),
+    map(val => _.set(generateNewEvtOccurrence(evtTypeId), 'payload', val),
       stream);
 
   const selectFromOp = source => source instanceof Promise ? fromPromise : _FP.compose(fromArray, Array.from);
