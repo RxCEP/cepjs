@@ -9,8 +9,7 @@ class EventType {
   constructor(eventTypeId, eventSource, occurrenceTime = null) {
     this._eventTypeId = eventTypeId;
     this._eventSource = eventSource;
-    this._occurrenceTime = occurrenceTime;
-    this._detectionTime = null;
+    this._occurrenceTime = this._detectionTime = occurrenceTime;
   }
 
   static eventType(eventTypeId, eventSource, occurrenceTime = null) {

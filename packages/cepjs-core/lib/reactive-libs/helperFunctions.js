@@ -22,10 +22,8 @@ const filterEvtsByEvtTypes = _FP.compose(_FP.filter, _FP.cond);
 
 
 const deriveEvt = _FP.curry((eventSource, newEvtTypeId, elms) => {
-  const currDate = Date.now();
-
   return _.set(
-    new EventType(newEvtTypeId, eventSource, currDate, currDate),
+    new EventType(newEvtTypeId, eventSource, Date.now()),
     'matchingSet',
     elms);
 });
