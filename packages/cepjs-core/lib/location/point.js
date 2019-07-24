@@ -1,5 +1,5 @@
-const LatLon = require('geodesy/latlon-ellipsoidal');
-const Utm = require('geodesy/utm');
+const LatLon = require('geodesy').LatLonEllipsoidal;
+const Utm = require('geodesy').Utm;
 
 /** Class used to represent a given point location. */
 class Point {
