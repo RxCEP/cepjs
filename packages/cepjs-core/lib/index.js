@@ -1,8 +1,7 @@
 const EventType = require('./eventtype');
-const patternPolicies = require('./policies/pattern-policies');
+const patternPolicies = require('./policies');
 const { temporalOrdering, recurrence } = require('./reactive-libs/common/context');
-const Point = require('./location/point');
-const hemisphere = require('./location/hemisphere');
+const { hemisphere, Point } = require('./location');
 const createRxAdapter = require('./reactive-libs/rxjs/adapter');
 const createMostAdapter = require('./reactive-libs/most/adapter');
 
