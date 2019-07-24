@@ -1,7 +1,8 @@
 const _ = require('lodash/fp');
 const { isWindow, predEvtTypeList, filterEvtsByEvtTypes, getPropOrderPolicy,
-  deriveEvt, AccHelper, compareStable, compareIncreasing, compareDecreasing,
-  compareMixed } = require('../../../helperFunctions');
+  deriveEvt, AccHelper} = require('../../../helperFunctions');
+const { compareStable, compareIncreasing, compareDecreasing,
+  compareMixed } = require('../../../common/trend');
 
 module.exports = function createTrendOperators(cepjsRx){
   const { filter, map } = cepjsRx.lib.operators;
