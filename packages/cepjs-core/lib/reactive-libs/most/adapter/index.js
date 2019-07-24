@@ -1,6 +1,7 @@
 const createLogicalOperators = require('./patterns/logical');
 const createModalOperators = require('./patterns/modal');
 const createSpatialOperators = require('./patterns/spatial');
+const createSpatioTemporal = require('./patterns/spatiotemporal');
 const createSubsetOperators = require('./patterns/subset');
 const createThresholdOperators = require('./patterns/threshold');
 const createTrendOperators = require('./patterns/trend');
@@ -15,6 +16,7 @@ module.exports = function createMostAdapter(cepjsMost){
         ...createLogicalOperators(cepjsMost),
         ...createModalOperators(cepjsMost),
         ...createSpatialOperators(cepjsMost),
+        ...createSpatioTemporal(cepjsMost),
         ...createSubsetOperators(cepjsMost),
         ...createThresholdOperators(cepjsMost),
         ...createTrendOperators(cepjsMost),

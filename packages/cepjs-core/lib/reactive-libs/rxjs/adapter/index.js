@@ -1,6 +1,7 @@
 const createLogicalOperators = require('./patterns/logical');
 const createModalOperators = require('./patterns/modal');
 const createSpatialOperators = require('./patterns/spatial');
+const createSpatioTemporal = require('./patterns/spatiotemporal');
 const createSubsetOperators = require('./patterns/subset');
 const createThresholdOperators = require('./patterns/threshold');
 const createTrendOperators = require('./patterns/trend');
@@ -15,6 +16,7 @@ module.exports = function createRxAdapter(cepjsRx){
         ...createLogicalOperators(cepjsRx),
         ...createModalOperators(cepjsRx),
         ...createSpatialOperators(cepjsRx),
+        ...createSpatioTemporal(cepjsRx),
         ...createSubsetOperators(cepjsRx),
         ...createThresholdOperators(cepjsRx),
         ...createTrendOperators(cepjsRx),
