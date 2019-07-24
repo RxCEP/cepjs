@@ -54,7 +54,7 @@ module.exports = function createSpatialOperators(cepjsMost) {
   * @param {string} newEvtTypeId - the event type id of new event generated when the pattern is satisfied.
   * @return {EventStream} a new event stream instance.
   */
-  operators.minDistance = createAbsoluteOps('min distance pattern', _.min);
+  operators.minDistance = createAbsoluteOps('min distance', _.min);
 
   /**
   * This pattern is matched when the maximal distance of the events' locations from a given point satisfies a given threshold assertion.
@@ -68,7 +68,7 @@ module.exports = function createSpatialOperators(cepjsMost) {
   * @param {string} newEvtTypeId - the event type id of new event generated when the pattern is satisfied.
   * @return {EventStream} a new event stream instance.
   */
-  operators.maxDistance = createAbsoluteOps('max distance pattern', _.max);
+  operators.maxDistance = createAbsoluteOps('max distance', _.max);
 
   /**
   * This pattern is matched when the average distance of the events' locations from a given point satisfies a given threshold assertion.
@@ -82,7 +82,7 @@ module.exports = function createSpatialOperators(cepjsMost) {
   * @param {string} newEvtTypeId - the event type id of new event generated when the pattern is satisfied.
   * @return {EventStream} a new event stream instance.
   */
-  operators.avgDistance = createAbsoluteOps('average distance pattern', _.mean);
+  operators.avgDistance = createAbsoluteOps('average distance', _.mean);
 
   /**
   * This pattern is matched when the minimal distance among the events' locations satisfies a given threshold assertion.
@@ -95,7 +95,7 @@ module.exports = function createSpatialOperators(cepjsMost) {
   * @param {string} newEvtTypeId - the event type id of new event generated when the pattern is satisfied.
   * @return {EventStream} a new event stream instance.
   */
-  operators.relativeMinDistance = createRelativeOps('relative min distance pattern', _.min);
+  operators.relativeMinDistance = createRelativeOps('relative min distance', _.min);
 
   /**
   * This pattern is matched when the maximal distance among the events' locations satisfies a given threshold assertion.
@@ -108,7 +108,7 @@ module.exports = function createSpatialOperators(cepjsMost) {
   * @param {string} newEvtTypeId - the event type id of new event generated when the pattern is satisfied.
   * @return {EventStream} a new event stream instance.
   */
-  operators.relativeMaxDistance = createRelativeOps('relative max distance pattern', _.max);
+  operators.relativeMaxDistance = createRelativeOps('relative max distance', _.max);
 
   /**
   * This pattern is matched when the average distance among the events' locations satisfies a given threshold assertion.
@@ -121,7 +121,7 @@ module.exports = function createSpatialOperators(cepjsMost) {
   * @param {string} newEvtTypeId - the event type id of new event generated when the pattern is satisfied.
   * @return {EventStream} a new event stream instance.
   */
-  operators.relativeAvgDistance = createRelativeOps('relative average distance pattern', _.mean);
+  operators.relativeAvgDistance = createRelativeOps('relative average distance', _.mean);
 
   return operators;
 }
