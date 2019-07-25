@@ -2,7 +2,7 @@ const _ = require('lodash');
 const _FP = require('lodash/fp');
 const eachCons = require('each-cons');
 const EventType = require('../eventtype');
-const { order } = require('../policies/pattern-policies');
+const { order } = require('../policies');
 const { recurrence } = require('./common/context');
 
 const aperture = n => array => eachCons(array, n);
