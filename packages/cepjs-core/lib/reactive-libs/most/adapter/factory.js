@@ -30,7 +30,7 @@ module.exports = function createFactoryOperators(cepjsMost) {
 
   const selectFromOp = source => source instanceof Promise ? fromPromise : _FP.compose(fromArray, Array.from);
 
-  const selectFromEventOp = target => target instanceof Element ?
+  const selectFromEventOp = target => Element && target instanceof Element ?
     domEvent : (eventName, emitter, $) => fromEvent(eventName, emitter);
 
   const operators = {};
