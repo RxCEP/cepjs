@@ -34,8 +34,5 @@
     "cepjs-rx": "^1.0.0",
     "webpack": "4.29.4",
     "webpack-cli": "3.2.3"
-  },
-  "files": [
-    "dist"
-  ]
+  }
 }
