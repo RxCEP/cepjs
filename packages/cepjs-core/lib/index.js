@@ -20,6 +20,6 @@ module.exports = function createCepjsOperators(reactiveLib) {
   } else if (reactiveLib.type === 'most') {
     return Object.assign(library, createMostAdapter(reactiveLib));
   } else {
-    return library;
+    throw new Error('Adaptee not recognized!');
   }
 };
