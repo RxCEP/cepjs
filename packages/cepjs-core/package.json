@@ -1,6 +1,6 @@
 {
   "name": "cepjs-core",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CEP.js core package",
   "main": "./lib",
   "license": "MIT",
