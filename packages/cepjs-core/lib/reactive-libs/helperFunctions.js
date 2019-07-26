@@ -63,7 +63,7 @@ const getRecurrenceMilliseconds = start => _FP.cond([
   [_FP.T, _FP.always(0)]
 ]);
 
-const flatStream = _FP.curry((streamType, stream) => eventStream instanceof streamType ? stream._stream : stream);
+const flatStream = _FP.curry((streamType, stream) => stream instanceof streamType ? stream._stream : stream);
 
 module.exports = {
   aperture,
