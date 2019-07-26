@@ -15,6 +15,7 @@ module.exports = function createSpatioTemporalOperators(cepjsRx) {
 
       return stream.pipe(filter(isWindow), //checks if it's a window
         map(filterEvtsByEvtTypes(preds)), //filters events according to a list of predicates
+        filter(buffer => buffer.length > 0),
         map(buffer => !orderProp ? buffer : _.sortBy([orderProp], buffer)), //order events according to order policy
         filter(buffer => calcDistance(_.last(buffer)) < calcDistance(_.head(buffer))),
         map(derivation)

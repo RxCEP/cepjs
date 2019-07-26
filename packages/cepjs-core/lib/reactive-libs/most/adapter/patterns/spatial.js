@@ -20,9 +20,10 @@ module.exports = function createSpatialOperators(cepjsMost) {
         return map(_.compose(derivation, _.get('set')),
           filter(_.get('result'),
             map(buffer => new AccHelper(testAssertion(buffer), buffer),
-              map(filterEvtsByEvtTypes(preds),
-                filter(isWindow,
-                  stream)))));
+              filter(buffer => buffer.length > 0,
+                map(filterEvtsByEvtTypes(preds),
+                  filter(isWindow,
+                    stream))))));
       }
 
   const createRelativeOps =

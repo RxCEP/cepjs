@@ -16,9 +16,10 @@ module.exports = function createSpatioTemporalOperators(cepjsMost) {
       return map(derivation,
         filter(buffer => calcDistance(_.last(buffer)) < calcDistance(_.head(buffer)),
           map(buffer => !orderProp ? buffer : _.sortBy([orderProp], buffer),
-            map(filterEvtsByEvtTypes(preds),
-              filter(isWindow,
-                stream)))));
+            filter(buffer => buffer.length > 0,
+              map(filterEvtsByEvtTypes(preds),
+                filter(isWindow,
+                  stream))))));
     }
 
   return {

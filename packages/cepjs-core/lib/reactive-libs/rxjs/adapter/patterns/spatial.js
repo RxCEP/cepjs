@@ -19,6 +19,7 @@ module.exports = function createSpatialOperators(cepjsRx){
 
         return stream.pipe(filter(isWindow), //checks if it's a window
           map(filterEvtsByEvtTypes(preds)), //filters events according to a list of predicates
+          filter(buffer => buffer.length > 0),
           map(buffer => new AccHelper(testAssertion(buffer), buffer)),
           filter(_.get('result')),
           map(_.compose(derivation, _.get('set'))));
