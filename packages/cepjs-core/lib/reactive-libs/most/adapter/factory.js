@@ -71,7 +71,7 @@ module.exports = function createFactoryOperators(cepjsMost) {
   * for mapping the values emitted by the stream into instances of the EventType class or any EventType's subclass.
   * @return {EventStream} a new event stream instance.
   */
-  operators.fromEvent = (target, eventName, useCapture, adaptor) =>
+  operators.fromEvent = (target, eventName, useCapture, adaptor = undefined) =>
     eventStream(
       generateFromEventStream(eventName, target, useCapture, adaptor,
         generateStreamWithAdaptor, generateStreamWithoutAdaptor, selectFromEventOp(target)));
