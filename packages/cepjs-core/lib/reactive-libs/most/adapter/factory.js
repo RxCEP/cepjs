@@ -19,9 +19,9 @@ module.exports = function createFactoryOperators(cepjsMost) {
   const generateStreamWithAdaptor = (adaptor, stream) => {
     const currTime = Date.now();
 
-    return eventStream(map(evt => _.set(evt, '_detectionTime', currTime),
+    return map(evt => _.set(evt, '_detectionTime', currTime),
       map(checkOccurrenceTime(currTime),
-        map(adaptor, stream))));
+        map(adaptor, stream)));
   }
 
   const generateStreamWithoutAdaptor = (evtTypeId, stream) =>
