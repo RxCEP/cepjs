@@ -76,7 +76,7 @@ class EventStream {
   subscribe(...observer) {
     if (observer.length > 0) {
       if (typeof observer[0] === 'object') {
-        return new StreamSubscription(run(buildSinkFromObject, observer[0]), this._stream);
+        return new StreamSubscription(run(buildSinkFromObject, observer[0], this._stream));
       } else {
         return new StreamSubscription(run(buildSinkFromFunctions, observer, this._stream));
       }
