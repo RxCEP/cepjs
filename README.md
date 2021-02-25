@@ -14,6 +14,7 @@
 - [About](#about)
 - [Install](#install)
 - [Usage](#usage)
+- [Acknowledgment](#acknowledgment)
 
 ## About
 CEP.js is a JavaScript library for coding complex event processing (CEP) reactively. It works as a big adapter, accepting different reactive libraries to express event processing operations while leveraging a sintax model close to the widely used ReactiveX for JavaScript ([RxJS](https://github.com/ReactiveX/rxjs)). Besides usual RxJS operations regarding stream manipulation, it also bundles common complex event processing (CEP) operations revolving around filtering, transformation, and **specially pattern detection**.
@@ -37,57 +38,33 @@ browser:
 <script src="path_to_cepjs-most/dist/cepjsMost.min.js"></script>
 ```
 ### Build
-The packages, available through npm, already include distribution files under the dist folder. Alternatively, one can execute the command `npm run build` within the root folder of any package to build the code and generate the distribution files.
+The packages, available through npm, already include distribution files (for browser usage) under the dist folder. Alternatively, one can execute the command `npm run build` within the root folder of any package to build the code and generate the distribution files.
 
 ### ES5 Note
 This is a project that heavily uses ES2015(ES6) syntax. However, each package includes an additional script that allows to generate distribution files targeting ES5. The command to run the script is `npm run build:es5`. After executing the script, the files will be available in the `dist.es5` folder.
 
 ## Usage
-The first step to take is to import the [core](./packages/cepjs-core) package. The package exports a factory function expecting to be passed in any of the custom reactive [packages](REACTIVE-LIBRARIES.md) chose during installation. All of the operations are then available under the same namespace. The following **_simple_** snippet exemplify those steps and usage.
+The first step to take is to import the [core](./packages/cepjs-core) package. The package exports a factory function expecting to be passed in any of the custom reactive [packages](REACTIVE-LIBRARIES.md) chose during installation. All of the operations are then available under the same namespace. The following snippets exemplify those steps.
 
 ### CommonJS
 ```JavaScript
-const coreFactory = require('cepjs-core');
-const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(require('cepjs-rx'));
-
-let clickStream = fromEvent(document, 'click',
-    domEvent => new EventType('click event', 'DOM', Date.now()));
-
-let keyPressStream = fromEvent(document, 'keypress',
-    domEvent => new EventType('key press event', 'DOM', Date.now()));
-
-let subscription =
-      merge(clickStream, keyPressStream)
-        .pipe(tumblingTimeWindow(1000),
-          all(['click event', 'key press event'], 'click & press'))
-        .subscribe({
-          next: derivedEvent =>
-            console.log(`Detected at ${new Date(derivedEvent.detectionTime)}`)
-        });
+const coreFactory = require('cepjs-core'); //factory function
+const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(require('cepjs-rx')); //access some operations
 ```
 ### IIFE (browser)
 ```JavaScript
-const coreFactory = cepjsCore;
-const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(cepjsRx);
-
-let clickStream = fromEvent(document, 'click',
-    domEvent => new EventType('click event', 'DOM', Date.now()));
-
-let keyPressStream = fromEvent(document, 'keypress',
-    domEvent => new EventType('key press event', 'DOM', Date.now()));
-
-let subscription =
-      merge(clickStream, keyPressStream)
-        .pipe(tumblingTimeWindow(1000),
-          all(['click event', 'key press event'], 'click & press'))
-        .subscribe({
-          next: derivedEvent =>
-            console.log(`Detected at ${new Date(derivedEvent.detectionTime)}`)
-        });
+const coreFactory = cepjsCore; //factory function
+const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(cepjsRx); //access some operations
 ```
+### Example
+TODO
 
+> Note that the syntax is almost identical to RxJS's, using the _pipe_ operator to derive business logic. As an alternative, a _compose_ operator is also available to compose functions from right to left, following a more natural compositional order.
 
-Note that the syntax is almost identical to RxJS's, using the _pipe_ operator to derive business logic. As an alternative, a _compose_ operator is also available to compose functions from right to left, following a more natural compositional order.
+## Acknowledgment
+We'd like to thank the following important source for the contribution to the development of the implemented patterns.
+
+* *Etzion, O., & Niblett, P. (2011). Event processing in action. Manning.*
 
 ## License
 CEP.js is available under the MIT license. See the [LICENSE](https://github.com/RxCEP/cepjs/blob/master/LICENSE) file for more info.
