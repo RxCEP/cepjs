@@ -1,6 +1,6 @@
 {
   "name": "cepjs-rx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Bundles the ReactiveX packages required for using CEP.js",
   "main": "./lib",
   "license": "MIT",
@@ -21,13 +21,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "rxjs": "^6.5.2"
+    "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "babel-loader": "^8.0.5",
+    "@babel/core": "^7.13.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.0",
+    "@babel/preset-env": "^7.13.5",
+    "babel-loader": "^8.2.2",
     "webpack": "4.29.4",
     "webpack-cli": "3.2.3"
   }
