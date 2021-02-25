@@ -1,6 +1,6 @@
 {
   "name": "cepjs-core",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "CEP.js core package",
   "main": "./lib",
   "license": "MIT",
@@ -22,16 +22,16 @@
   "dependencies": {
     "date-fns": "^1.30.1",
     "each-cons": "^1.0.0",
-    "geodesy": "^1.0.0",
-    "lodash": "^4.17.14"
+    "geodesy": "^1.1.3",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "babel-loader": "^8.0.5",
-    "cepjs-most": "^1.0.0",
-    "cepjs-rx": "^1.0.0",
+    "@babel/core": "^7.13.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.0",
+    "@babel/preset-env": "^7.13.5",
+    "babel-loader": "^8.2.2",
+    "cepjs-most": "^1.0.2",
+    "cepjs-rx": "^1.0.2",
     "webpack": "4.29.4",
     "webpack-cli": "3.2.3"
   }

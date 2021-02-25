@@ -1,6 +1,6 @@
 {
   "name": "cepjs-most",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Bundles the most.js packages required for using CEP.js",
   "main": "./lib",
   "license": "MIT",
@@ -21,18 +21,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@most/core": "^1.5.0",
+    "@most/core": "^1.6.1",
     "@most/dom-event": "^2.2.0",
-    "@most/scheduler": "^1.2.3",
-    "most-from-array": "^1.0.2",
+    "@most/scheduler": "^1.3.0",
+    "most-from-array": "^1.0.3",
     "most-from-event": "^1.1.2",
-    "most-rx-utils": "^1.0.2"
+    "most-rx-utils": "^1.1.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "babel-loader": "^8.0.5",
+    "@babel/core": "^7.13.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.0",
+    "@babel/preset-env": "^7.13.5",
+    "babel-loader": "^8.2.2",
     "webpack": "4.29.4",
     "webpack-cli": "3.2.3"
   }
