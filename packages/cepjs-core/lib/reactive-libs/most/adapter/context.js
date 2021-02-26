@@ -9,6 +9,7 @@ module.exports = function createContextOperators(cepjsMost) {
   const { bufferCount, bufferTime, bufferToggle, timer } = cepjsMost.lib.mostRxUtils;
   const { fromArray: from } = cepjsMost.lib.mostFromArray;
 
+  // race/mapToSelf operator based on the recipe: https://github.com/cujojs/most/wiki/Race
   const race = (s1, s2) =>
     join(take(1, merge(mapToSelf(s1), mapToSelf(s2))));
 

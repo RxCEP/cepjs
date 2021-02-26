@@ -4,6 +4,9 @@ const { newDefaultScheduler } = most.lib.scheduler;
 
 const StreamSubscription = require('./streamsubscription');
 
+/**
+ * Applies the pipeline operations to the underlying stream
+ */
 const composeLeft = (operations, stream) => {
   let i = 0, currentStream = stream;
 
@@ -15,6 +18,9 @@ const composeLeft = (operations, stream) => {
   return currentStream;
 }
 
+/**
+ * Builds a sink or observer from a object following a RxJS-like way 
+ */
 const buildSinkFromObject = observer => ({
   event: function (time, value) {
     observer.next(value);
@@ -29,6 +35,9 @@ const buildSinkFromObject = observer => ({
   }
 });
 
+/**
+ * Builds a sink or observer from functions following a RxJS-like way 
+ */
 const buildSinkFromFunctions = observer => ({
   event: function (time, value) {
     observer[0](value);
@@ -43,6 +52,9 @@ const buildSinkFromFunctions = observer => ({
   }
 });
 
+/**
+ * Runs the stream (or subscribes to it) according to the type of observer informed
+ */
 const run = (buildSink, observer, stream) =>
   mostRun(buildSink(observer), newDefaultScheduler(), stream);
 

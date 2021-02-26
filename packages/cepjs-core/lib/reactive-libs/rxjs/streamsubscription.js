@@ -6,6 +6,9 @@ class RxStreamSubscription extends StreamSubscription {
     super(subscription);
   }
 
+  /**
+  * Closes (or unsubscribe) the stream
+  */
   unsubscribe() {
     if (!this._closed) {
       this._subscription.unsubscribe();
