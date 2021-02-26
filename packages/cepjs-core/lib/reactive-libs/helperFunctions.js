@@ -1,6 +1,9 @@
 const _ = require('lodash');
 const _FP = require('lodash/fp');
 const eachCons = require('each-cons');
+const getDaysInMonth = require('date-fns/getDaysInMonth');
+const getDaysInYear = require('date-fns/getDaysInYear');
+
 const EventType = require('../eventtype');
 const { order } = require('../policies');
 const { recurrence } = require('./common/context');
