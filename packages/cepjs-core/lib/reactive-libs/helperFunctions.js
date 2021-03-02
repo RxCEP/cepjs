@@ -61,23 +61,49 @@ const AccHelper = function (result, set) {
   this.set = set;
 };
 
-const getPropOrderPolicy = _FP.cond([
-  [_FP.equals(order.OCCURRENCE_TIME), _FP.always(_FP.get('occurrenceTime'))],
-  [_FP.equals(order.DETECTION_TIME), _FP.always(_FP.get('detectionTime'))]
-]); //default stream position == undefined
+/**
+ * Returns either a function or undefined according to the order enum. Currently used in
+ * spatiotemporal and trend operators.
+ * @param {order} ordering - one of the ordering options provided by the order enum.
+ * @return {Function | undefined} returns either an accessor function or undefined according to
+ * the order option supplied.
+ */
+const getPropOrderPolicy = ordering => {
+  switch(ordering){
+    case order.OCCURRENCE_TIME:
+      return _FP.get('occurrenceTime');
+    case order.DETECTION_TIME:
+      return _FP.get('detectionTime');
+    default: //STREAM_POSITION
+      return undefined;
+  }
+}
 
-//milliseconds in a day
+// milliseconds in a day
 const DAYLY = 1000 * 60 * 60 * 24;
-//milliseconds in a week
+// milliseconds in a week
 const WEEKLY = DAYLY * 7;
 
-const getRecurrenceMilliseconds = start => _FP.cond([
-  [_FP.equals(recurrence.DAYLY), _FP.always(DAYLY)],
-  [_FP.equals(recurrence.WEEKLY), _FP.always(WEEKLY)],
-  [_FP.equals(recurrence.MONTHLY), _FP.always(getDaysInMonth(start) * DAYLY)],
-  [_FP.equals(recurrence.YEARLY), _FP.always(getDaysInYear(start) * DAYLY)],
-  [_FP.T, _FP.always(0)]
-]);
+/**
+ * Returns a recurrence in milliseconds. Currently used in context operators.
+ * @param {Date} start - a start date.
+ * @param {recurrence} recurr - a recurrence type defined by the recurrence enum.
+ * @return {number} a recurrence in milliseconds.
+ */
+const getRecurrenceMilliseconds = _FP.curry((start, recurr) => {
+  switch(recurr){
+    case recurrence.DAYLY:
+      return DAYLY;
+    case recurrence.WEEKLY:
+      return WEEKLY;
+    case recurrence.MONTHLY:
+      return getDaysInMonth(start) * DAYLY;
+    case recurrence.YEARLY:
+      return getDaysInYear(start) * DAYLY;
+    default:
+      return 0;
+  }
+});
 
 // flats the stream to bring up the inner stream
 const flatStream = _FP.curry((streamType, stream) => stream instanceof streamType ? stream._stream : stream);
