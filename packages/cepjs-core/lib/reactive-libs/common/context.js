@@ -29,7 +29,7 @@ const recurrence = {
 }
 
 const getOrderingAccessor = order =>
-  order === ordering.OCCURRENCE_TIME ? _.get('occurrenceTime') : _.get('detectionTime');
+  order === temporalOrdering.OCCURRENCE_TIME ? _.get('occurrenceTime') : _.get('detectionTime');
 
 module.exports = {
   recurrence,
