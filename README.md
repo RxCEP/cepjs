@@ -12,7 +12,13 @@
 </p>
 
 ## About
-CEP.js is a JavaScript library for coding complex event processing (CEP) reactively. It works as a big adapter, accepting different reactive libraries to express event processing operations while leveraging a sintax model close to the widely used ReactiveX for JavaScript ([RxJS](https://github.com/ReactiveX/rxjs)). Besides usual RxJS operations regarding stream manipulation, it also bundles common complex event processing (CEP) operations revolving around filtering, transformation, and **specially pattern detection**.
+CEP.js is a JavaScript library for coding complex event processing (CEP) reactively. It works as a big adapter, accepting different reactive libraries to express event processing operations while leveraging a sintax model close to the widely used ReactiveX for JavaScript ([RxJS](https://github.com/ReactiveX/rxjs)). Besides usual RxJS operations regarding stream manipulation, it also bundles common CEP operations revolving around filtering, transformation, and **specially pattern detection**.
+
+Advantages:
+<br>:heavy_check_mark: **A library**: offers greater flexibility as well as low latency (processing in-place) and lower overhead
+<br>:heavy_check_mark: **Pattern options**: there are currently many supported patterns covering areas like logical, trends, threshold
+<br>:heavy_check_mark: **Adaptable**: CEP.js alredy works with two reactive library to drive its operations
+<br>:heavy_check_mark: **Microservices-affinity**: the library can be easily integrated in a microservices environment
 
 ## Install
 Before continuing with installation, one must choose among the supported reactive libraries. In order to better manage those reactive libraries, they are organized in distinct packages bundling all necessary dependencies. See the [reactive libraries](REACTIVE-LIBRARIES.md) file to find more information on the reactive libraries and the respective packages.
@@ -51,13 +57,15 @@ const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(req
 const coreFactory = cepjsCore; //factory function
 const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(cepjsRx); //access some operations
 ```
-### Example
-TODO
 
-> Note that the syntax is almost identical to RxJS's, using the _pipe_ operator to derive business logic. As an alternative, a _compose_ operator is also available to compose functions from right to left, following a more natural compositional order.
+## TODO
+- [ ] Example
+- [ ] Unit tests
+- [ ] Implement more patterns
+- [ ] Add support to pattern policies
 
 ## Acknowledgment
-We'd like to thank the following important source for the contribution to the development of the implemented patterns.
+Most of the implemented operations are based on the following important work:
 
 * *Etzion, O., & Niblett, P. (2011). Event processing in action. Manning.*
 
