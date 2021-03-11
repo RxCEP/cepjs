@@ -26,19 +26,16 @@ const es5Config = {
   ]
 };
 
-module.exports = (env, argv) => {
+module.exports = env => {
 
-  if (argv.opts) {
-    const opts = argv.opts.split(':');
-    if (opts.some(opt => opt === 'dev')) {
-      config.mode = 'development';
-      config.output.filename = 'cepjsCore.js';
-    }
+  if (env.dev) {
+    config.mode = 'development';
+    config.output.filename = 'cepjsCore.js';
+  }
 
-    if (opts.some(opt => opt === 'es5')) {
-      config.output.path = path.resolve('dist.es5');
-      config.module = es5Config;
-    }
+  if (env.es5) {
+    config.output.path = path.resolve('dist.es5');
+    config.module = es5Config;
   }
 
   return config;

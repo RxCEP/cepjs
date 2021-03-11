@@ -15,8 +15,9 @@
   },
   "keywords": [],
   "scripts": {
-    "build": "webpack && webpack --opts dev",
-    "build:es5": "webpack --opts es5 && webpack --opts dev:es5",
+    "build": "webpack",
+    "build:dev": "webpack --env dev",
+    "build:es5": "webpack --env es5 && webpack --env dev --env es5",
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,11 +25,11 @@
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.13.0",
-    "@babel/preset-env": "^7.13.5",
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+    "@babel/preset-env": "^7.13.10",
     "babel-loader": "^8.2.2",
-    "webpack": "4.29.4",
-    "webpack-cli": "3.2.3"
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0"
   }
 }
