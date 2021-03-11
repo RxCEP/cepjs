@@ -1,5 +1,5 @@
 const _ = require('lodash/fp');
-const differenceInMilliseconds = require('date-fns/difference_in_milliseconds');
+const differenceInMilliseconds = require('date-fns/differenceInMilliseconds');
 
 const { predEvtTypeList, getRecurrenceMilliseconds, groupWith } = require('../../helperFunctions');
 const { recurrence, temporalOrdering, getOrderingAccessor } = require('../../common/context');
