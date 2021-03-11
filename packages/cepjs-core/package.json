@@ -1,6 +1,6 @@
 {
   "name": "cepjs-core",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "CEP.js core package",
   "main": "./lib",
   "license": "MIT",
@@ -32,8 +32,8 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "@babel/preset-env": "^7.13.10",
     "babel-loader": "^8.2.2",
-    "cepjs-most": "^1.0.3",
-    "cepjs-rx": "^1.0.3",
+    "cepjs-most": "^1.0.4",
+    "cepjs-rx": "^1.0.4",
     "webpack": "^5.24.4",
     "webpack-cli": "^4.5.0"
   }

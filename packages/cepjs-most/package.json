@@ -1,6 +1,6 @@
 {
   "name": "cepjs-most",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bundles the most.js packages required for using CEP.js",
   "main": "./lib",
   "license": "MIT",
