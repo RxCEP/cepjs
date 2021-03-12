@@ -17,7 +17,7 @@ CEP.js is a JavaScript library for coding complex event processing (CEP) reactiv
 Advantages:
 <br>:heavy_check_mark: **A library**: offers greater flexibility as well as low latency (processing in-place) and lower overhead
 <br>:heavy_check_mark: **Pattern options**: there are currently many supported patterns covering areas like logical, trends, threshold
-<br>:heavy_check_mark: **Adaptable**: CEP.js alredy works with two reactive library to drive its operations
+<br>:heavy_check_mark: **Adaptable**: CEP.js alredy works with two reactive libraries to drive its operations
 <br>:heavy_check_mark: **Microservices-affinity**: the library can be easily integrated in a microservices environment
 
 ## Install
@@ -44,6 +44,8 @@ The packages, available through npm, already include distribution files (for bro
 #### ES5 Note
 If needed, a ES5 build can be generated for every package. Just run the script `npm run build:es5` inside one of the packages. After that, the built file will be available in the `dist.es5` folder.
 
+> Requeries the execution of `npm install` to intall the dev dependencies before the building process.
+
 ## Usage
 The first step to take is to import the [core](./packages/cepjs-core) package. The package exports a factory function expecting to be passed in any of the custom reactive [packages](REACTIVE-LIBRARIES.md) chose during installation. All of the operations are then available under the same namespace. The following snippets exemplify those steps.
 
@@ -63,6 +65,9 @@ const { merge, fromEvent, tumblingTimeWindow, all, EventType } = coreFactory(cep
 - [ ] Unit tests
 - [ ] Implement more patterns
 - [ ] Add support to pattern policies
+
+## Contribution
+We highly appretiate contributions but before doing that, take a look into the [contribution guidelines](https://github.com/RxCEP/cepjs/blob/master/CONTRIBUTING.md).
 
 ## Acknowledgment
 Most of the implemented operations are based on the following important work:
